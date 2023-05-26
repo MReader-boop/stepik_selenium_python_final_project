@@ -28,14 +28,14 @@ def test_guest_cant_see_success_message_after_adding_product_to_basket(browser):
     product_page.open()
     product_page.should_be_product_page()
     product_page.add_product_to_basket()
-    assert product_page.is_element_missing(*Locators.SUCCESS_MESSAGE)
+    product_page.success_message_should_be_missing()
 
 def test_guest_cant_see_success_message(browser):
     link = 'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/'
     product_page = ProductPage(browser, link, 4)
     product_page.open()
     product_page.should_be_product_page()
-    assert product_page.is_element_missing(*Locators.SUCCESS_MESSAGE)
+    product_page.success_message_should_be_missing()
 
 @pytest.mark.xfail
 def test_message_disappeared_after_adding_product_to_basket(browser):
@@ -44,7 +44,7 @@ def test_message_disappeared_after_adding_product_to_basket(browser):
     product_page.open()
     product_page.should_be_product_page()
     product_page.add_product_to_basket()
-    assert product_page.has_element_disappeared(*Locators.SUCCESS_MESSAGE)
+    product_page.success_message_should_disappear()
 
 def test_guest_should_see_login_link_on_product_page(browser):
     link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/"

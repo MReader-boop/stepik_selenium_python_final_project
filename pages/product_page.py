@@ -29,3 +29,9 @@ class ProductPage(BasePage):
         add_to_basket_button.click()
         # self.solve_quiz_and_get_code()
 
+    def success_message_should_be_missing(self):
+        assert self.is_element_missing(*Locators.SUCCESS_MESSAGE)
+
+    def success_message_should_disappear(self):
+        assert self.has_element_disappeared(*Locators.SUCCESS_MESSAGE)
+
