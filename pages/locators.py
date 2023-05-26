@@ -3,6 +3,7 @@ from selenium.webdriver.common.by import By
 class BasePageLocators:
     LOGIN_LINK = (By.CSS_SELECTOR, '#login_link')
     LOGIN_INVALID = (By.CSS_SELECTOR, '#login_link_invalid')
+    VIEW_BASKET_BUTTON = (By.CSS_SELECTOR, 'header a.btn-default')
 
 class LoginPageLocators:
     LOGIN_FORM = (By.ID, 'login_form')
@@ -18,5 +19,7 @@ class ProductPageLocators:
     ITEM_PRICE = (By.CSS_SELECTOR, '.product_main p')
     SUCCESS_MESSAGE = (By.CLASS_NAME, 'alert-success')
 
-class MainPageLocators:
-    LOGIN_LINK = (By.CSS_SELECTOR, '#login_link')
+class BasketPageLocators:
+    # Селектор для сообщения о пустой корзине внизу страницы. Не самый элегантный, "спасибо" отсутствию семантики.
+    EMPTY_BASKET_MESSAGE = (By.CSS_SELECTOR, '#content_inner > p')
+    FIRST_BASKET_ITEM = (By.ID, 'basket_formset')

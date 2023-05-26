@@ -42,6 +42,13 @@ class BasePage:
     def should_be_login_link(self):
         assert self.is_element_present(*BasePageLocators.LOGIN_LINK), 'Unable to find login link'
 
+    def go_to_basket_page(self):
+        login_link = self.browser.find_element(*BasePageLocators.VIEW_BASKET_BUTTON)
+        login_link.click()
+
+    def should_be_view_basket_button(self):
+        assert self.is_element_present(*BasePageLocators.VIEW_BASKET_BUTTON), 'Unable to find "View basket" button'
+
     def solve_quiz_and_get_code(self):
         alert = self.browser.switch_to.alert
         x = alert.text.split(" ")[2]
